@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="singup.js"></script>
 </head>
-<body>
+<body onload="affiche()">
     <header>
   <h1>Student Internship Tracker</h1>
   <p>Track and manage your internship applications in one place.</p>
@@ -21,7 +22,14 @@
 <main>
     <form action="signup.php" method="post">
         <h1>Student Internship Tracker</h1>
+        <p>Sign up as:</p>
+  <input type="radio" name="account_type" id="st" value="student" checked onchange="affiche()">
+  <label for="st">Student</label>
+  <input type="radio" name="account_type" id="cp" value="company" onchange="affiche()">
+  <label for="cp">company</label>
+
         <fieldset>
+            <div id="student-fields">
             <table>
                 <tr>
                     <td><label for="fst">first name:</label></td>
@@ -32,8 +40,26 @@
                     <td><input type="text" name="lst" id="lst"></td>
                 </tr>
                 <tr>
-                    <td><label for="email">email:</label></td>
-                    <td><input type="email" name="email" id="email"></td>
+                    <td><label for="university">University:</label></td>
+                    <td>
+                    <input type="text" id="university" name="university" list="universities" placeholder="Select or type your university">
+                    <datalist id="universities">
+                    <option value="uca">
+                    <option value="isima">
+                    <option value="Sorbonne University">
+                    <option value="Université Paris-Saclay">
+                    <option value="Université Paris Cité">
+                    <option value="Université de Lyon">
+                    <option value="Université de Lille">
+                    <option value="Université Grenoble Alpes">
+                    <option value="Université de Strasbourg">
+                    <option value="Université de Bordeaux">
+                    <option value="Université de Montpellier">
+                    <option value="ENS">
+                    <option value="EPITA">
+                    <option value="EPITECH">
+                    <option value="INSA Lyon">
+                    </datalist></td>
                 </tr>
                 <tr>
                     <td><label for="lvl">Current Level:</label></td>
@@ -65,6 +91,10 @@
                 </td>
                 </tr>
                 <tr>
+                    <td><label for="email">email:</label></td>
+                    <td><input type="email" name="email" id="email"></td>
+                </tr>
+                <tr>
                     <td><label for="mdp">password:</label></td>
                     <td><input type="password" name="mdp" id="mdp"></td>
                 </tr>
@@ -78,6 +108,50 @@
                 </tr>
                 <a href="login.html">Do you have an account?</a>
             </table>
+            </div>
+            <div id="company-fields" >
+                <table>
+                <tr>
+                <td><label>Company Name:</label></td>
+                <td><input type="text" name="company_name"></td>
+                </tr>
+
+                <tr>
+                <td><label>Company Website:</label></td>
+                <td><input type="url" name="company_website"></td>
+                </tr>
+
+                <tr>
+                <td><label>Company Size:</label></td>
+                <td>
+                    <select name="company_size">
+                    <option>1–10</option>
+                    <option>11–50</option>
+                    <option>51–200</option>
+                    <option>200+</option>
+                    </select>
+                </td>
+                </tr>
+                <tr>
+                    <td><label for="email">email:</label></td>
+                    <td><input type="email" name="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="mdp">password:</label></td>
+                    <td><input type="password" name="mdp" id="mdp"></td>
+                </tr>
+                <tr>
+                    <td><label for="cmdp">confirm password:</label></td>
+                    <td><input type="password" name="cmdp" id="cmdp"></td>
+                </tr>
+                <tr>
+                    <td><input type="reset" value="cancel"></td>
+                    <td><input type="submit" value="sign up"></td>
+                </tr>
+                <a href="login.html">Do you have an account?</a>
+            </table>
+            </div>
+                
         </fieldset>
     </form>
 </main>
