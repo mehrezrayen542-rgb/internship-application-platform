@@ -1,88 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIT | Sign up</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-  <h1>Student Internship Tracker</h1>
-  <p>Track and manage your internship applications in one place.</p>
-  <nav>
-    <a href="index.html" section="btn">Home</a>
-    <a href="features.html" section="btn">Features</a>
-    <a href="about.html" section="btn">About</a>
-    <a href="login.html" section="btn">Login</a>
-    <a href="signup.html" section="btn">Register</a>  
-  </nav>
+      <h1>Student Internship Tracker</h1>
+      <p>Track and manage your internship applications in one place.</p>
+      <nav>
+        <a href="index.html" section="btn">Home</a>
+        <a href="features.html" section="btn">Features</a>
+        <a href="about.html" section="btn">About</a>
+        <a href="login.html" section="btn">Login</a>
+        <a href="signup.html" section="btn">Register</a>
+      </nav>
     </header>
 
-<main>
-    <form action="signup.php" method="post">
+    <main>
+      <form action="signup.php" method="post">
         <h1>Student Internship Tracker</h1>
         <fieldset>
-            <table>
-                <tr>
-                    <td><label for="fst">first name:</label></td>
-                    <td><input type="text" name="fst" id="fst"></td>
-                </tr>
-                <tr>
-                    <td><label for="lst">Last name:</label></td>
-                    <td><input type="text" name="lst" id="lst"></td>
-                </tr>
-                <tr>
-                    <td><label for="email">email:</label></td>
-                    <td><input type="email" name="email" id="email"></td>
-                </tr>
-                <tr>
-                    <td><label for="lvl">Current Level:</label></td>
-                    <td><select name="lvl" id="lvl">
-                        <option value="0" selected>Select your level</option>
-                        <option value="1">L1</option>
-                        <option value="2">L2</option>
-                        <option value="3">L3</option>
-                        <option value="4">Master 1</option>
-                        <option value="5">Master 2</option>
-                        <option value="6">Engineering Cycle</option>
-                        <option value="7">other</option>
-                    </select>
-                        
-            </td>
-                </tr>
-                <tr>
-                    <td><label for="field">Field of Study:</label></td>
-                    <td>
-                        <select name="field" id="field">
-                        <option value="0" selected>Choose your field</option>
-                        <option value="1">Computer Science</option>
-                        <option value="2">Mathematics</option>
-                        <option value="3">Data Science</option>
-                        <option value="4">Artificial Intelligence</option>
-                        <option value="5">Software Engineering</option>
-                        <option value="6">other</option>
-                    </select>
-                </td>
-                </tr>
-                <tr>
-                    <td><label for="mdp">password:</label></td>
-                    <td><input type="password" name="mdp" id="mdp"></td>
-                </tr>
-                <tr>
-                    <td><label for="cmdp">confirm password:</label></td>
-                    <td><input type="password" name="cmdp" id="cmdp"></td>
-                </tr>
-                <tr>
-                    <td><input type="reset" value="cancel"></td>
-                    <td><input type="submit" value="sign up"></td>
-                </tr>
-                <a href="login.html">Do you have an account?</a>
-            </table>
+          <table>
+            <tr>
+              <td><label for="fst">first name:</label></td>
+              <td><input type="text" name="fst" id="fst" /></td>
+            </tr>
+            <tr>
+              <td><label for="lst">Last name:</label></td>
+              <td><input type="text" name="lst" id="lst" /></td>
+            </tr>
+            <tr>
+              <td><label for="email">email:</label></td>
+              <td><input type="email" name="email" id="email" /></td>
+            </tr>
+            <tr>
+              <td><label for="lvl">Current Level:</label></td>
+              <td>
+                <select name="lvl" id="lvl">
+                  <option value="0" selected>Select your level</option>
+                  <option value="1">L1</option>
+                  <option value="2">L2</option>
+                  <option value="3">L3</option>
+                  <option value="4">Master 1</option>
+                  <option value="5">Master 2</option>
+                  <option value="6">Engineering Cycle</option>
+                  <option value="7">other</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="field">Field of Study:</label></td>
+              <td>
+                <select name="field" id="field">
+                  <option value="0" selected>Choose your field</option>
+                  <option value="1">Computer Science</option>
+                  <option value="2">Mathematics</option>
+                  <option value="3">Data Science</option>
+                  <option value="4">Artificial Intelligence</option>
+                  <option value="5">Software Engineering</option>
+                  <option value="6">other</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="mdp">password:</label></td>
+              <td><input type="password" name="mdp" id="mdp" /></td>
+            </tr>
+            <tr>
+              <td><label for="cmdp">confirm password:</label></td>
+              <td><input type="password" name="cmdp" id="cmdp" /></td>
+            </tr>
+            <tr>
+              <td><input type="reset" value="cancel" /></td>
+              <td><input type="submit" value="sign up" /></td>
+            </tr>
+            <a href="login.html">Do you have an account?</a>
+          </table>
         </fieldset>
-    </form>
-</main>
-<footer>
-  © 2026 Student Internship Tracker. All rights reserved.
-</footer>
-</body>
+      </form>
+    </main>
+    <footer>© 2026 Student Internship Tracker. All rights reserved.</footer>
+  </body>
 </html>
