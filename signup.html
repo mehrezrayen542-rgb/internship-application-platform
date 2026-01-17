@@ -86,8 +86,7 @@
             <div class="field">
               <label for="lvl">Current Level:</label
               ><select name="lvl" id="lvl" required>
-                <option value="0" selected>Select your level</option>
-                <option value="1">L1</option>
+                <option value="1a">L1</option>
                 <option value="2">L2</option>
                 <option value="3">L3</option>
                 <option value="4">Master 1</option>
@@ -97,15 +96,14 @@
               </select>
             </div>
             <div class="field">
-              <label for="field">Field of Study:</label
-              ><select name="field" id="field" required>
-                <option value="0" selected>Choose your field</option>
-                <option value="1">Computer Science</option>
-                <option value="2">Mathematics</option>
-                <option value="3">Data Science</option>
-                <option value="4">Artificial Intelligence</option>
-                <option value="5">Software Engineering</option>
-                <option value="6">other</option>
+              <label for="study">Field of Study:</label
+              ><select name="study" id="study" required>
+                <option value="cs">Computer Science</option>
+                <option value="ma">Mathematics</option>
+                <option value="ds">Data Science</option>
+                <option value="ai">Artificial Intelligence</option>
+                <option value="se">Software Engineering</option>
+                <option value="o">other</option>
               </select>
             </div>
             <div class="field">
@@ -114,11 +112,16 @@
             </div>
             <div class="field">
               <label for="mdp">password:</label
-              ><input type="password" name="mdp" id="mdp" required />
+              ><input type="password" name="password" id="password" required />
             </div>
             <div class="field">
               <label for="cmdp">confirm password:</label
-              ><input type="password" name="cmdp" id="cmdp" required />
+              ><input
+                type="password"
+                name="cpassword"
+                id="cpassword"
+                required
+              />
             </div>
             <input type="submit" value="sign up" />
           </section>
@@ -146,11 +149,11 @@
             </div>
             <div class="field">
               <label for="mdp">password:</label>
-              <input type="password" name="mdp" id="mdp" />
+              <input type="password" name="password" id="password" />
             </div>
             <div class="field">
               <label for="cmdp">confirm password:</label>
-              <input type="password" name="cmdp" id="cmdp" />
+              <input type="password" name="cpassword" id="cpassword" />
             </div>
           </section>
         </fieldset>
