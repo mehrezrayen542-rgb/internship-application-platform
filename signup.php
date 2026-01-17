@@ -1,6 +1,19 @@
 <?php
 require("connection.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    #verification que l'email existe :
+    $stmt = mysqli_prepare($c, "SELECT email FROM users WHERE email=?");
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
+
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        echo "L'email existe déjà dans la base de données.";
+    } else {
+        echo "L'email n'existe pas.";
+    }
+    
     $account_type = $_POST["account_type"];
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -17,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = mysqli_prepare($c, "INSERT INTO users (email, password, role) VALUES (?, ?, ?)");
 
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        
+
         mysqli_stmt_bind_param($stmt, "sss", $email, $hashed_password, $account_type);
 
         if (mysqli_stmt_execute($stmt)) {
