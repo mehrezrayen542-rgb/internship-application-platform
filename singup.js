@@ -1,11 +1,5 @@
-function affiche(){
-etudiant=document.getElementById("st").checked;
-if(!etudiant)
-{
-    document.getElementById("student-signup-fields").style.display="none";
-    document.getElementById("company-signup-fields").style.display="block";
+function affiche() {
+    var student = document.getElementById("st").checked;
+    document.getElementById("student-signup-fields").style.display = student ? "block" : "none";
+    document.getElementById("company-signup-fields").style.display = student ? "none" : "block";
 }
-else{
-    document.getElementById("company-signup-fields").style.display="none";
-    document.getElementById("student-signup-fields").style.display="block";
-}}
