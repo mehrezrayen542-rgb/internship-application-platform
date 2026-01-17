@@ -2,7 +2,8 @@
 require ("connection.php");
 $email=$_POST["email"];
 $password=$_POST["password"];
-$req="SELECT * from users where email='$name' and password='$mdp'";
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+$req="SELECT * from users where email='$email' and password='$hashed_password'";
 $res= mysqli_query($c,$req);
 if (mysqli_num_rows($res)==1){
     header("Location: index.php");

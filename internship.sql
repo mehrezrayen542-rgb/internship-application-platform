@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 16 jan. 2026 à 19:46
+-- Généré le : sam. 17 jan. 2026 à 16:32
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -88,6 +88,7 @@ CREATE TABLE `students` (
 --
 
 CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL
@@ -128,7 +129,8 @@ ALTER TABLE `students`
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -144,6 +146,12 @@ ALTER TABLE `applications`
 -- AUTO_INCREMENT pour la table `internship_offers`
 --
 ALTER TABLE `internship_offers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
