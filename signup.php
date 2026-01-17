@@ -1,14 +1,5 @@
 <?php
-$db_server = 'localhost';
-$db_name = 'internship';
-$db_user = 'root';
-$db_password = '';
-$error_message = '';
-try {
-    $dbh = new PDO("mysql:host=$db_server;dbname=$db_name", $db_user, $db_password);
-} catch (PDOException $e) {
-    die('Impossible de se connecter à la base de données, veuillez vérifier les données de connexion !: ' . $e->getMessage());
-}
+require ("connection.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $account_type = $_POST["account_type"];
     $email = $_POST["email"];
