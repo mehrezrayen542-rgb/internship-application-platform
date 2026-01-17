@@ -28,6 +28,7 @@
         <h1>Student Internship Tracker</h1>
         <fieldset>
           <label>Sign up as:</label>
+          <label>Student</label>
           <input
             type="radio"
             name="account_type"
@@ -36,7 +37,7 @@
             checked
             onchange="affiche()"
           />
-          <label for="st">Student</label>
+          <label>company</label>
           <input
             type="radio"
             name="account_type"
@@ -44,7 +45,7 @@
             value="company"
             onchange="affiche()"
           />
-          <label for="cp">company</label>
+
           <section id="student-signup-fields">
             <div class="field">
               <label for="fst">first name:</label>
@@ -120,6 +121,37 @@
               ><input type="password" name="cmdp" id="cmdp" required />
             </div>
             <input type="submit" value="sign up" />
+          </section>
+          <section id="company-signup-fields">
+            <div class="field">
+              <label>Company Name:</label>
+              <input type="text" name="company_name" />
+            </div>
+            <div class="field">
+              <label>Company Website:</label>
+              <input type="url" name="company_website" />
+            </div>
+            <div class="field">
+              <label>Company Size:</label>
+              <select name="company_size">
+                <option>1–10</option>
+                <option>11–50</option>
+                <option>51–200</option>
+                <option>200+</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="email">email:</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div class="field">
+              <label for="mdp">password:</label>
+              <input type="password" name="mdp" id="mdp" />
+            </div>
+            <div class="field">
+              <label for="cmdp">confirm password:</label>
+              <input type="password" name="cmdp" id="cmdp" />
+            </div>
           </section>
         </fieldset>
       </form>

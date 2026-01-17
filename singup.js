@@ -2,10 +2,10 @@ function affiche(){
 etudiant=document.getElementById("st").checked;
 if(!etudiant)
 {
-    document.getElementById("student-fields").style.display="none";
-    document.getElementById("company-fields").style.display="block";
+    document.getElementById("student-signup-fields").style.display="none";
+    document.getElementById("company-signup-fields").style.display="block";
 }
 else{
-    document.getElementById("company-fields").style.display="none";
-    document.getElementById("student-fields").style.display="block";
+    document.getElementById("company-signup-fields").style.display="none";
+    document.getElementById("student-signup-fields").style.display="block";
 }}
