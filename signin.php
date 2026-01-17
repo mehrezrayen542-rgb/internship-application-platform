@@ -1,7 +1,7 @@
 <?php
 require ("connection.php");
-$name=$_POST["name"];
-$mdp=$_POST["mdp"];
+$email=$_POST["email"];
+$password=$_POST["password"];
 $req="SELECT * from users where email='$name' and password='$mdp'";
 $res= mysqli_query($c,$req);
 if (mysqli_num_rows($res)==1){
