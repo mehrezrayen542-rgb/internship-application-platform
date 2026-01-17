@@ -2,8 +2,13 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 require("connection.php");
+
+$error = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $account_type = $_POST["account_type"];
@@ -26,17 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_store_result($stmt);
 
         if (mysqli_stmt_num_rows($stmt) > 0) {
-            header("Location: signup.html");
-            exit();
+            $error = "email linked to another account.";
         } else {#si elle n'existe pas inserer une nouvelle ligne
             $stmt = mysqli_prepare($c, "INSERT INTO users (email, password, role) VALUES (?, ?, ?)");
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             mysqli_stmt_bind_param($stmt, "sss", $email, $hashed_password, $account_type);
-
-            mysqli_stmt_close($stmt);
-            mysqli_close($c);
-            header("Location: signin.html");
-            exit();
         }
 
     } else {#gestion profil company
@@ -57,18 +56,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_store_result($stmt);
 
         if (mysqli_stmt_num_rows($stmt) > 0) {
-            header("Location: signup.html");
-            exit();
+            $error = "email linked to another account.";
         } else {#si elle n'existe pas inserer une nouvelle ligne
             $stmt = mysqli_prepare($c, "INSERT INTO users (email, password, role) VALUES (?, ?, ?)");
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             mysqli_stmt_bind_param($stmt, "sss", $email, $hashed_password, $account_type);
 
-            mysqli_stmt_close($stmt);
-            mysqli_close($c);
-            header("Location: signin.html");
-            exit();
+
+            #recuperation de l'id et creation de la variable de session user_id
+
+            $stmt = mysqli_prepare($c, "SELECT id FROM users WHERE email=?");
+            mysqli_stmt_bind_param($stmt, "s", $email);
+            mysqli_stmt_execute($stmt);
+            $user_id = mysqli_stmt_get_result($stmt);
+
+            $_SESSION["id"] = $user_id;
+
         }
+
+        $stmt = mysqli_prepare($c, "SELECT email FROM users WHERE email=?");
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+        mysqli_stmt_close($stmt);
+        mysqli_close($c);
+        header("Location: index.html");
+        exit();
+
 
     }
 

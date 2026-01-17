@@ -1,177 +1,147 @@
-<?php 
-if (!isset($_SESSION)) {
-    session_start();
-}
+<?php
+require("add_user.php");
 
 
 ?>
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SIT | Sign up</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="singup.js"></script>
-  </head>
-  <body onload="affiche()">
-    <header>
-      <section id="top-header">
-        <h1>Student Internship Tracker</h1>
-        <nav>
-          <a href="index.html" section="btn">Home</a>
-          <a href="features.html" section="btn">Features</a>
-          <a href="about.html" section="btn">About</a>
-          <a href="login.html" section="btn">Login</a>
-          <a href="signup.html" section="btn">Register</a>
-        </nav>
-      </section>
-      <p style="text-align: center">
-        Track and manage your internship applications in one place.
-      </p>
-    </header>
-    <main>
-      <form action="signup.php" method="post">
-        <h1>Student Internship Tracker</h1>
-        <fieldset>
-          <label>Sign up as:</label>
-          <label>Student</label>
-          <input
-            type="radio"
-            name="account_type"
-            id="st"
-            value="student"
-            checked
-            onchange="affiche()"
-          />
-          <label>company</label>
-          <input
-            type="radio"
-            name="account_type"
-            id="cp"
-            value="company"
-            onchange="affiche()"
-          />
 
-          <section id="student-signup-fields">
-            <div class="field">
-              <label for="fst">first name:</label>
-              <input type="text" name="fst" id="fst" required />
-            </div>
-            <div class="field">
-              <label for="lst">Last name:</label>
-              <input type="text" name="lst" id="lst" required />
-            </div>
-            <div class="field">
-              <label for="university">University:</label>
-              <input
-                type="text"
-                id="university"
-                name="university"
-                list="universities"
-                placeholder="Select or type your university"
-                required
-              />
-              <datalist id="universities">
-                <option value="uca"></option>
-                <option value="isima"></option>
-                <option value="Sorbonne University"></option>
-                <option value="Université Paris-Saclay"></option>
-                <option value="Université Paris Cité"></option>
-                <option value="Université de Lyon"></option>
-                <option value="Université de Lille"></option>
-                <option value="Université Grenoble Alpes"></option>
-                <option value="Université de Strasbourg"></option>
-                <option value="Université de Bordeaux"></option>
-                <option value="Université de Montpellier"></option>
-                <option value="ENS"></option>
-                <option value="EPITA"></option>
-                <option value="EPITECH"></option>
-                <option value="INSA Lyon"></option>
-              </datalist>
-            </div>
-            <div class="field">
-              <label for="lvl">Current Level:</label
-              ><select name="lvl" id="lvl" required>
-                <option value="1a">L1</option>
-                <option value="2">L2</option>
-                <option value="3">L3</option>
-                <option value="4">Master 1</option>
-                <option value="5">Master 2</option>
-                <option value="6">Engineering Cycle</option>
-                <option value="7">other</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="study">Field of Study:</label
-              ><select name="study" id="study" required>
-                <option value="cs">Computer Science</option>
-                <option value="ma">Mathematics</option>
-                <option value="ds">Data Science</option>
-                <option value="ai">Artificial Intelligence</option>
-                <option value="se">Software Engineering</option>
-                <option value="o">other</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="email">email:</label
-              ><input type="email" name="email_st" id="email_st" required />
-            </div>
-            <div class="field">
-              <label for="mdp">password:</label
-              ><input
-                type="password"
-                name="password_st"
-                id="password_st"
-                required
-              />
-            </div>
-            <div class="field">
-              <label for="cmdp">confirm password:</label
-              ><input
-                type="password"
-                name="cpassword_st"
-                id="cpassword_st"
-                required
-              />
-            </div>
-            <input type="submit" value="sign up" />
-          </section>
-          <section id="company-signup-fields">
-            <div class="field">
-              <label>Company Name:</label>
-              <input type="text" name="company_name" />
-            </div>
-            <div class="field">
-              <label>Company Website:</label>
-              <input type="url" name="company_website" />
-            </div>
-            <div class="field">
-              <label>Company Size:</label>
-              <select name="company_size">
-                <option>1–10</option>
-                <option>11–50</option>
-                <option>51–200</option>
-                <option>200+</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="email">email:</label>
-              <input type="email" name="email_cp" id="email_cp" />
-            </div>
-            <div class="field">
-              <label for="mdp">password:</label>
-              <input type="password" name="password_cp" id="password_cp" />
-            </div>
-            <div class="field">
-              <label for="cmdp">confirm password:</label>
-              <input type="password" name="cpassword_cp" id="cpassword_cp" />
-            </div>
-            <input type="submit" value="sign up" />
-          </section>
-        </fieldset>
-      </form>
-    </main>
-    <footer>© 2026 Student Internship Tracker. All rights reserved.</footer>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIT | Sign up</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="singup.js"></script>
+</head>
+
+<body onload="affiche()">
+  <header>
+    <section id="top-header">
+      <h1>Student Internship Tracker</h1>
+      <nav>
+        <a href="index.html" section="btn">Home</a>
+        <a href="features.html" section="btn">Features</a>
+        <a href="about.html" section="btn">About</a>
+        <a href="login.html" section="btn">Login</a>
+        <a href="signup.html" section="btn">Register</a>
+      </nav>
+    </section>
+    <p style="text-align: center">
+      Track and manage your internship applications in one place.
+    </p>
+  </header>
+  <main>
+    <form action="signup.php" method="post">
+      <h1>Student Internship Tracker</h1>
+      <fieldset>
+        <label>Sign up as:</label>
+        <label>Student</label>
+        <input type="radio" name="account_type" id="st" value="student" checked onchange="affiche()" />
+        <label>company</label>
+        <input type="radio" name="account_type" id="cp" value="company" onchange="affiche()" />
+
+        <section id="student-signup-fields">
+          <div class="field">
+            <label for="fst">first name:</label>
+            <input type="text" name="fst" id="fst" required />
+          </div>
+          <div class="field">
+            <label for="lst">Last name:</label>
+            <input type="text" name="lst" id="lst" required />
+          </div>
+          <div class="field">
+            <label for="university">University:</label>
+            <input type="text" id="university" name="university" list="universities"
+              placeholder="Select or type your university" required />
+            <datalist id="universities">
+              <option value="uca"></option>
+              <option value="isima"></option>
+              <option value="Sorbonne University"></option>
+              <option value="Université Paris-Saclay"></option>
+              <option value="Université Paris Cité"></option>
+              <option value="Université de Lyon"></option>
+              <option value="Université de Lille"></option>
+              <option value="Université Grenoble Alpes"></option>
+              <option value="Université de Strasbourg"></option>
+              <option value="Université de Bordeaux"></option>
+              <option value="Université de Montpellier"></option>
+              <option value="ENS"></option>
+              <option value="EPITA"></option>
+              <option value="EPITECH"></option>
+              <option value="INSA Lyon"></option>
+            </datalist>
+          </div>
+          <div class="field">
+            <label for="lvl">Current Level:</label><select name="lvl" id="lvl" required>
+              <option value="1a">L1</option>
+              <option value="2">L2</option>
+              <option value="3">L3</option>
+              <option value="4">Master 1</option>
+              <option value="5">Master 2</option>
+              <option value="6">Engineering Cycle</option>
+              <option value="7">other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="study">Field of Study:</label><select name="study" id="study" required>
+              <option value="cs">Computer Science</option>
+              <option value="ma">Mathematics</option>
+              <option value="ds">Data Science</option>
+              <option value="ai">Artificial Intelligence</option>
+              <option value="se">Software Engineering</option>
+              <option value="o">other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="email">email:</label><input type="email" name="email_st" id="email_st" required />
+          </div>
+          <div class="field">
+            <label for="mdp">password:</label><input type="password" name="password_st" id="password_st" required />
+          </div>
+          <div class="field">
+            <label for="cmdp">confirm password:</label><input type="password" name="cpassword_st" id="cpassword_st"
+              required />
+          </div>
+          <input type="submit" value="sign up" />
+        </section>
+        <section id="company-signup-fields">
+          <div class="field">
+            <label>Company Name:</label>
+            <input type="text" name="company_name" />
+          </div>
+          <div class="field">
+            <label>Company Website:</label>
+            <input type="url" name="company_website" />
+          </div>
+          <div class="field">
+            <label>Company Size:</label>
+            <select name="company_size">
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>200+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="email">email:</label>
+            <input type="email" name="email_cp" id="email_cp" />
+          </div>
+          <div class="field">
+            <label for="mdp">password:</label>
+            <input type="password" name="password_cp" id="password_cp" />
+          </div>
+          <div class="field">
+            <label for="cmdp">confirm password:</label>
+            <input type="password" name="cpassword_cp" id="cpassword_cp" />
+          </div>
+          <input type="submit" value="sign up" />
+          <?php echo $error?>
+        </section>
+      </fieldset>
+      <a href="signin.php">You already have an account ?</a>
+    </form>
+  </main>
+  <footer>© 2026 Student Internship Tracker. All rights reserved.</footer>
+</body>
+
 </html>
