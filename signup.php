@@ -1,7 +1,45 @@
 <?php
-require("add_user.php");
+require "add_user.php";
+
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $account_type = $_POST["account_type"];
+
+  if ($account_type == "student") {
+    $password = $_POST["password_st"];
+    $cpassword = $_POST["cpassword_st"];
+    $email = $_POST["email_st"];
+  } else {
+    $password = $_POST["password_cp"];
+    $cpassword = $_POST["cpassword_cp"];
+    $email = $_POST["email_cp"];
+  }
+  #verification que l'email existe :
+  $stmt = mysqli_prepare($c, "SELECT email FROM users WHERE email=?");
+  mysqli_stmt_bind_param($stmt, "s", $email);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_store_result($stmt);
+
+  if (mysqli_stmt_num_rows($stmt) > 0) {
+    $error = "email linked to another account.";
 
 
+
+  } else if ($password == $cpassword) {#l'email n'existe pas, verification password
+    #creation du compte
+    if ($account_type == "student") {
+      create_account_student($email, $password, $_POST["fst"], $_POST["lst"], $_POST["university"], $_POST["lvl"], $_POST["study"]);
+    } else {
+      create_account_company($email, $password, $_POST["company_name"], $_POST["company_adress"], $_POST["company_website"], $_POST["company_size"]);
+    }
+  } else {
+    $error = "password doesn't match.";
+  }
+
+
+
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -73,7 +111,7 @@ require("add_user.php");
           </div>
           <div class="field">
             <label for="lvl">Current Level:</label><select name="lvl" id="lvl" required>
-              <option value="1a">L1</option>
+              <option value="1">L1</option>
               <option value="2">L2</option>
               <option value="3">L3</option>
               <option value="4">Master 1</option>
@@ -104,10 +142,16 @@ require("add_user.php");
           </div>
           <input type="submit" value="sign up" />
         </section>
+
+
         <section id="company-signup-fields">
           <div class="field">
             <label>Company Name:</label>
             <input type="text" name="company_name" />
+          </div>
+          <div class="field">
+            <label>Company headquarters:</label>
+            <input type="text" name="company_adress" />
           </div>
           <div class="field">
             <label>Company Website:</label>
@@ -135,7 +179,7 @@ require("add_user.php");
             <input type="password" name="cpassword_cp" id="cpassword_cp" />
           </div>
           <input type="submit" value="sign up" />
-          <?php echo $error?>
+          <?php echo $error ?>
         </section>
       </fieldset>
       <a href="signin.php">You already have an account ?</a>
